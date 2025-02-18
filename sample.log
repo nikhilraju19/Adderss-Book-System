@@ -1,0 +1,47 @@
+2025-02-18 11:49:07,273 : INFO : Contact created successfully Nikhil Raju
+2025-02-18 11:49:07,273 : INFO : Contact added to address book Nikhil, Raju
+2025-02-18 11:59:30,924 : INFO : Contact created successfully Nikhil Raj
+2025-02-18 11:59:30,924 : INFO : Contact added to address book Nikhil Raj
+2025-02-18 12:21:44,339 : WARNING : Failed to create contact: zip code should be numeric
+2025-02-18 12:21:44,340 : WARNING : Failed to add contact.
+2025-02-18 12:21:44,341 : INFO : No contacts to display in the address book
+2025-02-18 12:30:59,467 : WARNING : Failed to create contact: zip code should be numeric
+2025-02-18 12:30:59,468 : WARNING : Failed to add contact.
+2025-02-18 12:30:59,469 : INFO : No contacts to display in the address book
+2025-02-18 12:37:53,094 : INFO : Contact created successfully dgfdg dgdfg
+2025-02-18 12:37:53,096 : INFO : Contact added to address book dgfdg dgdfg
+2025-02-18 13:59:22,260 : INFO : Contact created successfully Nikhil Raju
+2025-02-18 13:59:22,260 : INFO : Contact added to address book Nikhil Raju
+2025-02-18 14:11:56,682 : ERROR : Process interrupted by user.
+2025-02-18 14:24:19,549 : ERROR : Process interrupted by user.
+2025-02-18 14:24:29,286 : ERROR : Zip code should be numeric
+2025-02-18 14:25:19,777 : ERROR : Process interrupted by user.
+2025-02-18 14:37:00,559 : ERROR : Process interrupted by user.
+2025-02-18 14:38:06,342 : WARNING : Zip code should be numeric
+2025-02-18 14:38:12,093 : WARNING : Zip code should be numeric
+2025-02-18 14:38:17,513 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-18 14:38:31,382 : INFO : Contact created successfully Nikhil Raju
+2025-02-18 14:38:31,383 : INFO : Contact added to address book Nikhil Raju
+2025-02-18 14:42:12,095 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-18 14:42:12,096 : INFO : Nikhil Vardhan added to contacts
+2025-02-18 14:43:33,287 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-18 14:43:33,288 : INFO : Nikhil Vardhan added to contacts
+2025-02-18 14:46:52,648 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-18 14:46:52,649 : INFO : Nikhil Vardhan added to contacts
+2025-02-18 15:16:30,097 : WARNING : Zip code should be numeric
+2025-02-18 15:16:30,475 : WARNING : Zip code should be numeric
+2025-02-18 15:16:34,501 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-18 15:16:43,908 : WARNING : Failed to create contact. Please enter correct details in all the fields
+2025-02-18 15:16:43,908 : WARNING : Failed to add contact.
+2025-02-18 15:16:43,908 : INFO : No contacts to display in the address book
+2025-02-18 15:20:19,232 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-18 15:20:19,232 : INFO : Nikhil Vardhan added to my contacts
+2025-02-18 15:20:41,653 : WARNING : Zip code should be numeric
+2025-02-18 15:20:49,259 : WARNING : Failed to create contact. Please enter correct details in all the fields
+2025-02-18 15:20:49,259 : WARNING : Failed to add contact.
+2025-02-18 15:20:49,259 : INFO : No contacts to display in my contacts
+2025-02-18 15:24:17,547 : WARNING : Failed to create contact. Please enter correct details in all the fields
+2025-02-18 15:24:17,562 : WARNING : Failed to add contact.
+2025-02-18 15:24:17,562 : WARNING : To display contact details please add a contact first
+2025-02-18 15:26:56,111 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-18 15:26:56,111 : INFO : Nikhil Vardhan added to my contacts
