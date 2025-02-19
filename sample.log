@@ -44,4 +44,35 @@
 2025-02-18 15:24:17,562 : WARNING : Failed to add contact.
 2025-02-18 15:24:17,562 : WARNING : To display contact details please add a contact first
 2025-02-18 15:26:56,111 : INFO : Nikhil Vardhan - Contact created successfully 
-2025-02-18 15:26:56,111 : INFO : Nikhil Vardhan added to my contacts 
+2025-02-18 15:26:56,111 : INFO : Nikhil Vardhan added to my contacts 2025-02-19 08:46:34,391 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-19 08:47:22,753 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-19 08:47:30,080 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-19 08:47:30,081 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 08:48:13,348 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-19 08:48:13,348 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 08:48:58,001 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-19 08:48:58,002 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 09:00:10,023 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-19 09:00:10,024 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 09:00:49,313 : INFO : Karthik Reddy - Contact created successfully 
+2025-02-19 09:00:49,314 : INFO : Karthik Reddy added to my contacts
+2025-02-19 09:06:56,925 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-19 09:06:56,925 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 09:07:45,026 : INFO : Karthik Reddy - Contact created successfully 
+2025-02-19 09:07:45,026 : INFO : Karthik Reddy added to my contacts
+2025-02-19 09:09:01,608 : INFO : Exiting My Contacts System
+2025-02-19 09:10:26,259 : ERROR : Process interrupted by user.
+2025-02-19 09:11:00,645 : WARNING : Zip code should be numeric
+2025-02-19 09:11:15,103 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-19 09:11:15,105 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 09:11:56,439 : INFO : Karthik Reddy - Contact created successfully 
+2025-02-19 09:11:56,440 : INFO : Karthik Reddy added to my contacts
+2025-02-19 09:12:37,585 : INFO : Chandra Kiran - Contact created successfully 
+2025-02-19 09:12:37,586 : INFO : Chandra Kiran added to my contacts
+2025-02-19 09:13:27,311 : ERROR : Process interrupted by user.
+2025-02-19 09:14:53,818 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-19 09:14:53,819 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 10:25:47,959 : ERROR : Process interrupted by user.
+2025-02-19 10:51:57,855 : INFO : Nikhil Vardhan - Contact created successfully 
+2025-02-19 10:51:57,856 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 10:52:00,382 : INFO : Exiting My Contacts System
