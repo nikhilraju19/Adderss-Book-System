@@ -70,6 +70,7 @@ class MyContacts:
         if contact is not None:
             self.contacts.append(contact)
             logger.info(f"{contact.first_name} {contact.last_name} added to my contacts")
+            print(f"{contact.first_name} {contact.last_name} added to my contacts")
             return True
         logger.warning("Failed to add contact")
         return False
@@ -85,10 +86,11 @@ class MyContacts:
         """ 
         if not self.contacts:
             logger.warning("No contacts available to display.")
-            print("No contacts in my contacts")
+            print("No contacts available to display")
         else:
-            print("\nDisplaying contacts present in My Contacts:")
-            for contact in self.contacts:
+            print("Displaying contacts present in My Contacts:")
+            for index, contact in enumerate(self.contacts, start = 1):
+                print(f"Contact {index}:")
                 print(f"{contact}")
     
     def edit_contact(self, first_name, last_name):
@@ -148,17 +150,17 @@ def create_contact():
 		contact details of a person if present, None otherwise
     """
     try:
-        first_name = input("Enter the contact's first name : ")
+        first_name = input("\nEnter the contact's first name : ")
         last_name = input("Enter the contact's last name: ")
         city = input("Enter name of the city: ")
         state = input("Enter name of the state: ")
         while True: 
             zip_code = input("Enter zip code: ")
-            if zip_code.isdigit():
+            if zip_code.isdigit() and (len(zip_code) == 6 or len(zip_code) == 7):
                 break 
             else:
-                logger.warning("Zip code should be numeric")
-                print("Invalid Input: Zip code should be numeric")
+                logger.warning("Zip code should be numeric and it should be valid")
+                print("Invalid Input: Zip code should be numeric and it should be valid")
         while True:
             mobile_number = input("Enter mobile number: ")
             if mobile_number.isdigit() and len(mobile_number) == 10:
@@ -208,18 +210,27 @@ def main():
     my_contacts = MyContacts()
     while True:
         try:
-            print("\nAdress Book Menu: ")
+            print("\nMy Contacts Menu: ")
             print("1. Create a new contact")
             print("2. Display Contacts")
             print("3. Edit a contact")
             print("4. Delete a contact")
             print("5. Exit")
             
-            choice = int(input("\nEnter your choice: "))
+            choice = int(input("\nPlease select a number from My Contacts menu: "))
             
             if choice == 1:
-                contact = create_contact()
-                my_contacts.add_contact(contact)
+                while True:
+                    number_of_persons = input("Enter the number of persons to be added in my contacts: ")
+                    if number_of_persons.isdigit():
+                        number_of_persons = int(number_of_persons)
+                        if number_of_persons > 0:
+                            break
+                    logger.warning("Invalid Input: Please enter a number which is greater than 0")
+                    print("Invalid Input: Please enter a number which is greater than 0")
+                for _ in range(number_of_persons):
+                    contact = create_contact()
+                    my_contacts.add_contact(contact)
             elif choice == 2:
                 my_contacts.display_contacts()
             elif choice == 3:
@@ -235,8 +246,8 @@ def main():
                 print("Exiting My Contacts System")
                 break
             else:
-                logger.warning("Invalid choice. Please enter a valid choice.")
-                print("Invalid choice. Please try again.")
+                logger.warning("Invalid choice. Please choose a valid option from My Contacts Menu.")
+                print("Invalid choice. Please choose a valid option from My Contacts Menu.")
 
         except KeyboardInterrupt:
             logger.error("Process interrupted by user.")
