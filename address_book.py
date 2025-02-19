@@ -73,7 +73,7 @@ class MyContacts:
             return True
         logger.warning("Failed to add contact")
         return False
-    
+
     def display_contacts(self):
         """
         Description:
@@ -87,11 +87,36 @@ class MyContacts:
             logger.warning("No contacts available to display.")
             print("No contacts in my contacts")
         else:
-            print("\nDisplaying contacts present in My Contacts:")
-            for index, contact in enumerate(self.contacts, start = 1):
-                print(f"Contact {index}:")
+            print("Displaying contacts present in My Contacts:")
+            for contact in self.contacts:
                 print(f"{contact}")
-        
+    
+    def edit_contact(self, first_name, last_name):
+        """
+        Description:
+            This function is used to edit a contact in the my contacts
+        Parameters:
+            self: self refers to the instance of the class
+            first_name: first name that needed to edit a contact
+            last_name: last name that needed to edit a contact
+        Return:
+            bool: True if contact is edited successfully in the my contacts, False otherwise
+        """ 
+        for contact in self.contacts:
+            if contact.first_name == first_name and contact.last_name == last_name:
+                print("Editing contact. Leave blank to keep existing value.")
+                contact.city = input(f"Enter new city ({contact.city}): ") or contact.city
+                contact.state = input(f"Enter new state ({contact.state}): ") or contact.state
+                contact.zip_code = input(f"Enter new zip code ({contact.zip_code}): ") or contact.zip_code
+                contact.mobile_number = input(f"Enter new mobile number ({contact.mobile_number}): ") or contact.mobile_number
+                contact.email_id = input(f"Enter new email id ({contact.email_id}): ") or contact.email_id
+                logger.info(f"{first_name} {last_name} - Contact updated successfully")
+                print(f"{first_name} {last_name} - Contact updated successfully")
+                return True
+        logger.warning("Contact not found.")
+        print("Contact not found. Please try again.")
+        return False
+       
 def create_contact():
     """
 	Description:
@@ -130,7 +155,7 @@ def create_contact():
                 
     except KeyboardInterrupt:
         logger.error("Process interrupted by user.")
-        print("\nProcess interrupted by user. Exiting...")
+        print("Process interrupted by user. Exiting...")
         exit(1)
     
     except Exception as e:
@@ -141,10 +166,12 @@ def create_contact():
     # if all the variables are non empty it creates contact otherwise it returns None
     if all([first_name, last_name, city, state, zip_code, mobile_number, email_id]):
         contact = Contact(first_name, last_name, city, state, zip_code, mobile_number, email_id)
-        logger.info(f"{first_name} {last_name} - Contact created successfully ")
+        logger.info(f"{first_name} {last_name} - Contact created successfully")
+        print(f"{first_name} {last_name} - Contact created successfully")
         return contact
     else:
         logger.warning("Failed to create contact. Please enter correct details in all the fields")
+        print("Failed to create contact. Please try again.")
         return None
     
 def main():
@@ -163,7 +190,8 @@ def main():
             print("\nAdress Book Menu: ")
             print("1. Create a new contact")
             print("2. Display Contacts")
-            print("3. Exit")
+            print("3. Edit a contact")
+            print("4. Exit")
             
             choice = int(input("Enter your choice: "))
             
@@ -173,6 +201,10 @@ def main():
             elif choice == 2:
                 my_contacts.display_contacts()
             elif choice == 3:
+                first_name = input("Enter the first name of the contact to edit: ")
+                last_name = input("Enter the last name of the contact to edit: ")
+                my_contacts.edit_contact(first_name, last_name)    
+            elif choice == 4:
                 logger.info("Exiting My Contacts System")
                 print("Exiting My Contacts System")
                 break
@@ -182,7 +214,7 @@ def main():
 
         except KeyboardInterrupt:
             logger.error("Process interrupted by user.")
-            print("\nProcess interrupted by user. Exiting...")
+            print("Process interrupted by user. Exiting...")
             exit(1)
         
         except Exception as e:
