@@ -91,3 +91,25 @@
 2025-02-19 11:23:44,154 : WARNING : Contact not found.
 2025-02-19 11:24:47,390 : INFO : Nikhil Vardhan - Contact updated successfully
 2025-02-19 11:25:44,040 : ERROR : Process interrupted by user.
+2025-02-19 11:55:05,637 : INFO : Nikhil Vardhan - Contact created successfully
+2025-02-19 11:55:05,637 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 11:56:54,006 : ERROR : Process interrupted by user.
+2025-02-19 11:59:19,120 : INFO : Nikhil Vardhan - Contact created successfully
+2025-02-19 11:59:19,120 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 12:05:02,860 : INFO : Karthik Reddy - Contact created successfully
+2025-02-19 12:05:02,860 : INFO : Karthik Reddy added to my contacts
+2025-02-19 12:05:52,611 : INFO : Nikhil Vardhan - Contact updated successfully
+2025-02-19 12:06:04,560 : WARNING : Zip code should be numeric
+2025-02-19 12:06:14,207 : INFO : hsjdsf fd - Contact created successfully
+2025-02-19 12:06:14,211 : INFO : hsjdsf fd added to my contacts
+2025-02-19 12:08:17,260 : ERROR : Process interrupted by user.
+2025-02-19 12:09:21,640 : INFO : Nikhil Vardhan - Contact created successfully
+2025-02-19 12:09:21,640 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 12:09:33,562 : INFO : Nikhil Vardhan - Contact deleted successfully
+2025-02-19 12:09:38,212 : WARNING : No contacts available to display.
+2025-02-19 12:29:17,029 : ERROR : Process interrupted by user.
+2025-02-19 12:29:47,932 : INFO : Nikhil Vardhan - Contact created successfully
+2025-02-19 12:29:47,932 : INFO : Nikhil Vardhan added to my contacts
+2025-02-19 12:31:13,342 : INFO : Nikhil Vardhan - Contact updated successfully
+2025-02-19 12:31:29,168 : INFO : Nikhil Vardhan - Contact deleted successfully
+2025-02-19 12:31:37,758 : INFO : Exiting My Contacts System

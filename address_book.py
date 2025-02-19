@@ -87,7 +87,7 @@ class MyContacts:
             logger.warning("No contacts available to display.")
             print("No contacts in my contacts")
         else:
-            print("Displaying contacts present in My Contacts:")
+            print("\nDisplaying contacts present in My Contacts:")
             for contact in self.contacts:
                 print(f"{contact}")
     
@@ -116,7 +116,28 @@ class MyContacts:
         logger.warning("Contact not found.")
         print("Contact not found. Please try again.")
         return False
-       
+
+    def delete_contact(self, first_name, last_name):
+        """
+        Description:
+            This function is used to edit a contact in the my contacts
+        Parameters:
+            self: self refers to the instance of the class
+            first_name: first name that needed to edit a contact
+            last_name: last name that needed to edit a contact
+        Return:
+            bool: True if contact is edited successfully in the my contacts, False otherwise
+        """
+        for contact in self.contacts:
+            if contact.first_name == first_name and contact.last_name == last_name:
+                self.contacts.remove(contact)
+                logger.info(f"{first_name} {last_name} - Contact deleted successfully")
+                print(f"{first_name} {last_name} - Contact deleted successfully")
+                return True
+        logger.warning("Contact not found.")
+        print("Contact not found. Please try again.")
+        return False
+         
 def create_contact():
     """
 	Description:
@@ -191,9 +212,10 @@ def main():
             print("1. Create a new contact")
             print("2. Display Contacts")
             print("3. Edit a contact")
-            print("4. Exit")
+            print("4. Delete a contact")
+            print("5. Exit")
             
-            choice = int(input("Enter your choice: "))
+            choice = int(input("\nEnter your choice: "))
             
             if choice == 1:
                 contact = create_contact()
@@ -203,8 +225,12 @@ def main():
             elif choice == 3:
                 first_name = input("Enter the first name of the contact to edit: ")
                 last_name = input("Enter the last name of the contact to edit: ")
-                my_contacts.edit_contact(first_name, last_name)    
+                my_contacts.edit_contact(first_name, last_name) 
             elif choice == 4:
+                first_name = input("Enter the first name of the contact to delete: ")
+                last_name = input("Enter the last name of the contact to delete: ")
+                my_contacts.delete_contact(first_name, last_name)   
+            elif choice == 5:
                 logger.info("Exiting My Contacts System")
                 print("Exiting My Contacts System")
                 break
@@ -221,6 +247,7 @@ def main():
             logger.error(f"Unexpected error: {e}")
             print(f"Unexpected error occured: {e}")
             return None
+
 
 if __name__ == "__main__":
     main()
