@@ -197,6 +197,31 @@ class AddressBookSystem():
             address book details
         """
         return self.address_books.get(name)
+
+    def search_by_city(self, city):
+        """
+        Description:
+            This functions is used to srarch a person in city across multiple address books
+        Parameters:
+            self: self refers to the instance of the class
+            city: city to search person
+        Return:
+            contact details of a person present in the given city across multiple address books
+        """
+        results = []
+        for book_name, book in self.address_books.items():
+            for contact in book.contacts:
+                if contact.city.lower() == city.lower():
+                    results.append((book_name, contact))
+        
+        if results:
+            print(f"Contacts found in city {city}:")
+            for book_name, contact in results:
+                print(f"From Address Book: {book_name}")
+                print(contact)
+        else:
+            logger.warning(f"No contacts found in city {city}.")
+            print(f"No contacts found in city {city}.")
                 
 def create_contact(address_book):
     """
@@ -279,7 +304,8 @@ def main():
             print("3. Display contacts in Address Book")
             print("4. Edit a contact in Address Book")
             print("5. Delete a contact in Address Book")
-            print("6. Exit")
+            print("6. Search for a person by city across Address Books")
+            print("7. Exit")
             
             choice = int(input("\nPlease select a number from Address Book System Menu: "))
             
@@ -354,8 +380,12 @@ def main():
                 else:
                     logger.warning(f"Address book {name} doesn't exist.")
                     print(f"Address book {name} doesn't exist.")                
-                    
+            
             elif choice == 6:
+                city = input("Enter city name to search for contacts: ")
+                system.search_by_city(city)
+            
+            elif choice == 7:
                 logger.info("Exiting Address Book System")
                 print("Exiting Address Book System")
                 break

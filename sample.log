@@ -237,3 +237,27 @@
 2025-02-21 01:41:46,085 : INFO : adsf dsf - Contact added to SRM contacts
 2025-02-21 01:42:14,685 : INFO : nikhil vardhan - Contact deleted successfully
 2025-02-21 01:42:29,595 : INFO : Exiting Address Book System
+2025-02-21 02:12:42,280 : INFO : Address Book 3 - Created Successfully
+2025-02-21 02:12:58,885 : ERROR : Process interrupted by user.
+2025-02-21 02:13:11,192 : INFO : Address Book srm - Created Successfully
+2025-02-21 02:13:51,277 : INFO : nikhil vardhan - Contact added to srm contacts
+2025-02-21 02:14:08,827 : WARNING : nikhil vardhan - Contact already exists.
+2025-02-21 02:14:36,593 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-21 02:14:46,455 : INFO : karthik reddy - Contact added to srm contacts
+2025-02-21 02:17:37,994 : INFO : maruthi jaswanth - Contact added to srm contacts
+2025-02-21 02:17:48,056 : INFO : Address Book Bridgelabz - Created Successfully
+2025-02-21 02:18:38,914 : INFO : chandu kiran - Contact added to Bridgelabz contacts
+2025-02-21 02:18:57,943 : WARNING : chandu kiran - Contact already exists.
+2025-02-21 02:19:32,388 : INFO : venkatesh reddy - Contact added to Bridgelabz contacts
+2025-02-21 02:20:18,240 : INFO : manne sai - Contact added to Bridgelabz contacts
+2025-02-21 02:21:12,608 : INFO : jibi anna - Contact added to srm contacts
+2025-02-21 02:22:43,117 : INFO : charan teja - Contact added to Bridgelabz contacts
+2025-02-21 02:23:37,460 : WARNING : Address book 1 doesn't exist.
+2025-02-21 02:23:43,747 : ERROR : Unexpected error: invalid literal for int() with base 10: 'nithin'
+2025-02-21 02:25:00,180 : INFO : nithin channa - Contact added to srm contacts
+2025-02-21 02:26:30,130 : WARNING : No contacts found in city 'dfs'.
+2025-02-21 02:27:21,352 : WARNING : No contacts found in city 'dsfads'.
+2025-02-21 02:27:40,904 : ERROR : Unexpected error: invalid literal for int() with base 10: 'giddalur'
+2025-02-21 02:28:15,781 : INFO : maruthi jaswanth - Contact deleted successfully
+2025-02-21 02:28:24,004 : WARNING : No contacts found in city 'rampur'.
+2025-02-21 02:28:31,195 : INFO : Exiting Address Book System
