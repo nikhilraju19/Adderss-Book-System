@@ -261,3 +261,79 @@
 2025-02-21 02:28:15,781 : INFO : maruthi jaswanth - Contact deleted successfully
 2025-02-21 02:28:24,004 : WARNING : No contacts found in city 'rampur'.
 2025-02-21 02:28:31,195 : INFO : Exiting Address Book System
+2025-02-21 03:39:35,075 : INFO : Address Book srm - Created Successfully
+2025-02-21 03:39:49,657 : INFO : Address Book Bridgelabz - Created Successfully
+2025-02-21 03:40:52,496 : INFO : nikghil vardhan - Contact added to srm contacts
+2025-02-21 03:41:12,564 : WARNING : Zip code should be numeric and it should be valid
+2025-02-21 03:41:17,692 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-21 03:41:25,891 : INFO : karhtik reddy - Contact added to srm contacts
+2025-02-21 03:41:48,624 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-21 03:41:55,502 : INFO : maruthi jaswanrh - Contact added to srm contacts
+2025-02-21 03:42:06,979 : WARNING : Address book bridgelabz doesn't exist.
+2025-02-21 03:42:15,700 : ERROR : Unexpected error: invalid literal for int() with base 10: 'Bridgelabz'
+2025-02-21 03:42:43,680 : WARNING : Address Book Bridgelabz already exists
+2025-02-21 03:43:37,552 : INFO : chandu kiran - Contact added to Bridgelabz contacts
+2025-02-21 03:43:59,532 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-21 03:44:11,135 : INFO : venky reddy - Contact added to Bridgelabz contacts
+2025-02-21 03:44:37,427 : INFO : chanran teja - Contact added to Bridgelabz contacts
+2025-02-21 03:45:49,774 : WARNING : No contacts found in city dsafd.
+2025-02-21 04:12:36,553 : ERROR : Process interrupted by user.
+2025-02-21 04:12:42,840 : INFO : Address Book srm - Created Successfully
+2025-02-21 04:12:48,652 : INFO : Address Book bridgelabz - Created Successfully
+2025-02-21 04:13:07,738 : ERROR : Process interrupted by user.
+2025-02-21 04:13:16,595 : INFO : Address Book srm - Created Successfully
+2025-02-21 04:13:43,391 : INFO : nikhil vardhan - Contact added to srm contacts
+2025-02-21 04:13:51,293 : WARNING : Zip code should be numeric and it should be valid
+2025-02-21 04:13:54,791 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-21 04:14:01,844 : WARNING : nikhil vardhan - Contact already exists.
+2025-02-21 04:14:22,735 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-21 04:14:31,306 : INFO : karthik reddy - Contact added to srm contacts
+2025-02-21 04:15:16,178 : INFO : maruthi jaswanth - Contact added to srm contacts
+2025-02-21 04:15:24,596 : INFO : Address Book bridgelabz - Created Successfully
+2025-02-21 04:15:53,549 : INFO : manne sai - Contact added to bridgelabz contacts
+2025-02-21 04:16:20,365 : WARNING : Zip code should be numeric and it should be valid
+2025-02-21 04:16:22,263 : WARNING : Zip code should be numeric and it should be valid
+2025-02-21 04:16:34,432 : INFO : venky red - Contact added to bridgelabz contacts
+2025-02-21 04:17:14,284 : INFO : charan teja - Contact added to bridgelabz contacts
+2025-02-21 04:20:59,918 : ERROR : Unexpected error: invalid literal for int() with base 10: 'telangana'
+2025-02-21 04:24:39,570 : INFO : Exiting Address Book System
+2025-02-21 04:25:21,848 : INFO : Address Book srm - Created Successfully
+2025-02-21 04:25:42,125 : INFO : nikhil vardhan - Contact added to srm contacts
+2025-02-21 04:25:51,151 : ERROR : Process interrupted by user.
+2025-02-21 04:25:57,707 : INFO : Address Book srm - Created Successfully
+2025-02-21 04:26:10,326 : WARNING : Address Book srm already exists
+2025-02-21 04:26:15,783 : ERROR : Process interrupted by user.
+2025-02-21 04:26:20,487 : INFO : Address Book srm - Created Successfully
+2025-02-21 04:26:49,852 : INFO : nikhil vardhan - Contact added to srm contacts
+2025-02-21 04:27:18,247 : INFO : karthik reddy - Contact added to srm contacts
+2025-02-21 04:27:46,437 : INFO : maruthi jaswanth - Contact added to srm contacts
+2025-02-21 04:28:14,597 : INFO : Address Book chennai - Created Successfully
+2025-02-21 04:29:02,047 : INFO : manne sai - Contact added to chennai contacts
+2025-02-21 04:29:36,550 : INFO : venky red - Contact added to chennai contacts
+2025-02-21 04:30:11,422 : INFO : chandu kiran - Contact added to chennai contacts
+2025-02-21 04:30:52,419 : WARNING : No contacts found in city andhra.
+2025-02-21 04:31:18,756 : WARNING : No contacts found in city telangana.
+2025-02-21 04:32:56,876 : INFO : Exiting Address Book System
+2025-02-21 04:33:03,712 : INFO : Address Book srm - Created Successfully
+2025-02-21 04:33:20,551 : ERROR : Process interrupted by user.
+2025-02-21 04:33:26,321 : INFO : Address Book srm - Created Successfully
+2025-02-21 04:34:05,768 : INFO : nikhil vardhan - Contact added to srm contacts
+2025-02-21 04:34:29,218 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-21 04:34:31,456 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-21 04:34:36,753 : INFO : karthik red - Contact added to srm contacts
+2025-02-21 04:34:58,783 : INFO : maruthi jaswanth - Contact added to srm contacts
+2025-02-21 04:35:04,609 : INFO : Address Book chennai - Created Successfully
+2025-02-21 04:35:33,193 : INFO : chandu kiran - Contact added to chennai contacts
+2025-02-21 04:35:52,273 : INFO : charan twja - Contact added to chennai contacts
+2025-02-21 04:36:14,929 : INFO : manne sai - Contact added to chennai contacts
+2025-02-21 04:36:45,006 : WARNING : No contacts found in city andhra.
+2025-02-21 04:52:53,031 : ERROR : Process interrupted by user.
+2025-02-21 04:52:59,789 : INFO : Address Book srm - Created Successfully
+2025-02-21 04:53:24,140 : INFO : nikhil vardhan - Contact added to srm contacts
+2025-02-21 04:53:53,222 : INFO : karthik' red - Contact added to srm contacts
+2025-02-21 04:54:28,356 : INFO : maruthi jaswanth - Contact added to srm contacts
+2025-02-21 04:55:00,104 : INFO : Address Book chennai - Created Successfully
+2025-02-21 04:55:25,587 : INFO : manne sai - Contact added to chennai contacts
+2025-02-21 04:55:48,366 : INFO : charan teja - Contact added to chennai contacts
+2025-02-21 04:56:28,092 : INFO : venky red - Contact added to chennai contacts
+2025-02-21 04:58:51,303 : INFO : Exiting Address Book System

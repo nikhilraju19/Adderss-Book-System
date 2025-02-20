@@ -165,6 +165,8 @@ class AddressBookSystem():
             None
         """ 
         self.address_books = {}
+        self.city_dict = {}
+        self.state_dict = {}
         
     def add_address_book(self, name):
         """
@@ -198,31 +200,78 @@ class AddressBookSystem():
         """
         return self.address_books.get(name)
 
+    def update_city_dict(self):
+        """
+        Description:
+            This functions is used to append all the contacts present in a given city
+        Parameters:
+            self: self refers to the instance of the class
+        Return:
+            None
+        """
+        self.city_dict.clear()
+        for book in self.address_books.values():
+            for contact in book.contacts:
+                city_lower = contact.city.lower()
+                if city_lower not in self.city_dict:
+                    self.city_dict[city_lower] = []
+                self.city_dict[city_lower].append(contact)
+
     def search_by_city(self, city):
         """
         Description:
-            This functions is used to srarch a person in city across multiple address books
+            This functions is used to get the details of the persons present in a given city
         Parameters:
             self: self refers to the instance of the class
-            city: city to search person
+            city: city to search people
         Return:
-            contact details of a person present in the given city across multiple address books
+            contact details of a person present in a given city
         """
-        results = []
-        for book_name, book in self.address_books.items():
-            for contact in book.contacts:
-                if contact.city.lower() == city.lower():
-                    results.append((book_name, contact))
-        
-        if results:
+        city_lower = city.lower()
+        if city_lower in self.city_dict:
             print(f"Contacts found in city {city}:")
-            for book_name, contact in results:
-                print(f"From Address Book: {book_name}")
+            for contact in self.city_dict[city_lower]:
                 print(contact)
         else:
             logger.warning(f"No contacts found in city {city}.")
             print(f"No contacts found in city {city}.")
-                
+            
+    def update_state_dict(self):
+        """
+        Description:
+            This functions is used to append all the contacts present in a given state
+        Parameters:
+            self: self refers to the instance of the class
+        Return:
+            None
+        """
+        self.state_dict.clear()
+        for book in self.address_books.values():
+            for contact in book.contacts:
+                state_lower = contact.state.lower()
+                if state_lower not in self.state_dict:
+                    self.state_dict[state_lower] = []
+                self.state_dict[state_lower].append(contact)
+
+    def search_by_state(self, state):
+        """
+        Description:
+            This functions is used to get the details of the persons present in a given state
+        Parameters:
+            self: self refers to the instance of the class
+            state: state to search people
+        Return:
+            contact details of a person present in a given state
+        """
+        state_lower = state.lower()
+        if state_lower in self.state_dict:
+            print(f"Contacts found in state {state}:")
+            for contact in self.state_dict[state_lower]:
+                print(contact)
+        else:
+            logger.warning(f"No contacts found in state {state}.")
+            print(f"No contacts found in state {state}.")
+            
 def create_contact(address_book):
     """
 	Description:
@@ -305,7 +354,8 @@ def main():
             print("4. Edit a contact in Address Book")
             print("5. Delete a contact in Address Book")
             print("6. Search for a person by city across Address Books")
-            print("7. Exit")
+            print("7. Search for a person by state across Address Books")
+            print("8. Exit")
             
             choice = int(input("\nPlease select a number from Address Book System Menu: "))
             
@@ -334,6 +384,8 @@ def main():
                         if contact:
                                 logger.info(f"{contact.first_name} {contact.last_name} - Contact added to {name} contacts")
                                 print(f"{contact.first_name} {contact.last_name} - Contact added to {name} contacts")
+                    system.update_city_dict()
+                    system.update_state_dict()
                 else:
                     logger.warning(f"Address book {name} doesn't exist.")
                     print(f"Address book {name} doesn't exist.")
@@ -359,6 +411,8 @@ def main():
                         first_name = input("Enter the first name of the contact to edit: ")
                         last_name = input("Enter the last name of the contact to edit: ")
                         book.edit_contact(first_name, last_name)
+                        system.update_city_dict()
+                        system.update_state_dict()
                     else:
                         logger.warning(f"No contacts to edit in Address book {name}.")
                         print(f"No contacts to edit in Address book {name}.")
@@ -373,7 +427,9 @@ def main():
                     if book and book.contacts:
                         first_name = input("Enter the first name of the contact to delete: ")
                         last_name = input("Enter the last name of the contact to delete: ")
-                        book.delete_contact(first_name, last_name)  
+                        book.delete_contact(first_name, last_name)
+                        system.update_city_dict()
+                        system.update_state_dict()
                     else:
                         logger.warning(f"No contacts to delete in Address book {name}.")
                         print(f"No contacts to delete in Address book {name}.")
@@ -384,8 +440,12 @@ def main():
             elif choice == 6:
                 city = input("Enter city name to search for contacts: ")
                 system.search_by_city(city)
-            
+                
             elif choice == 7:
+                state = input("Enter state name to search for contacts: ")
+                system.search_by_state(state)
+            
+            elif choice == 8:
                 logger.info("Exiting Address Book System")
                 print("Exiting Address Book System")
                 break
