@@ -57,6 +57,19 @@ class MyContacts:
         """ 
         self.contacts = []
         
+    def contact_exists(self, first_name, last_name):
+        """
+        Description:
+            This function is used to check whether a contact is already exist or not
+        Parameters:
+            self: self refers to the instance of the class
+            first_name: first name to check if is already in contacts or not
+            last_name: last name to check if is already in contacts or not
+        Return:
+            boool: True if contact exist, False otherwise
+        """ 
+        return any(contact.first_name == first_name and contact.last_name == last_name for contact in self.contacts)
+  
     def add_contact(self, contact):
         """
         Description:
@@ -69,8 +82,6 @@ class MyContacts:
         """ 
         if contact is not None:
             self.contacts.append(contact)
-            logger.info(f"{contact.first_name} {contact.last_name} added to my contacts")
-            print(f"{contact.first_name} {contact.last_name} added to my contacts")
             return True
         logger.warning("Failed to add contact")
         return False
@@ -187,7 +198,7 @@ class AddressBookSystem():
         """
         return self.address_books.get(name)
                 
-def create_contact():
+def create_contact(address_book):
     """
 	Description:
 		This function is used to create a new contact
@@ -196,53 +207,58 @@ def create_contact():
 	Return:
 		contact details of a person if present, None otherwise
     """
-    try:
-        first_name = input("\nEnter the contact's first name : ")
-        last_name = input("Enter the contact's last name: ")
-        city = input("Enter name of the city: ")
-        state = input("Enter name of the state: ")
-        while True: 
-            zip_code = input("Enter zip code: ")
-            if zip_code.isdigit() and len(zip_code) == 6:
-                break 
-            else:
-                logger.warning("Zip code should be numeric and it should be valid")
-                print("Invalid Input: Zip code should be numeric and it should be valid")
-        while True:
-            mobile_number = input("Enter mobile number: ")
-            if mobile_number.isdigit() and len(mobile_number) == 10:
-                break
-            else:
-                logger.warning("Mobile number should be numeric and it must be exactly 10 digits")
-                print("Invalid Input: Mobile number should be numeric and it must be exactly 10 digits")
-        while True:
-            email_id = input("Enter email id: ")
-            if '@' in email_id and '.' in email_id:
-                break
-            else:
-                logger.warning("Invalid Email id format")
-                print("Invalid Email id format")
-                
-    except KeyboardInterrupt:
-        logger.error("Process interrupted by user.")
-        print("Process interrupted by user. Exiting...")
-        exit(1)
-    
-    except Exception as e:
-        logger.error(f"Unexpected error: {e}")
-        print(f"Unexpected error occured: {e}")
-        return None
-    
-    # if all the variables are non empty it creates contact otherwise it returns None
-    if all([first_name, last_name, city, state, zip_code, mobile_number, email_id]):
-        contact = Contact(first_name, last_name, city, state, zip_code, mobile_number, email_id)
-        logger.info(f"{first_name} {last_name} - Contact created successfully")
-        print(f"{first_name} {last_name} - Contact created successfully")
-        return contact
-    else:
-        logger.warning("Failed to create contact. Please enter correct details in all the fields")
-        print("Failed to create contact. Please try again.")
-        return None
+    while True:     
+        try:
+            first_name = input("\nEnter the contact's first name : ")
+            last_name = input("Enter the contact's last name: ")
+            city = input("Enter name of the city: ")
+            state = input("Enter name of the state: ")
+            while True: 
+                zip_code = input("Enter zip code: ")
+                if zip_code.isdigit() and len(zip_code) == 6:
+                    break 
+                else:
+                    logger.warning("Zip code should be numeric and it should be valid")
+                    print("Invalid Input: Zip code should be numeric and it should be valid")
+            while True:
+                mobile_number = input("Enter mobile number: ")
+                if mobile_number.isdigit() and len(mobile_number) == 10:
+                    break
+                else:
+                    logger.warning("Mobile number should be numeric and it must be exactly 10 digits")
+                    print("Invalid Input: Mobile number should be numeric and it must be exactly 10 digits")
+            while True:
+                email_id = input("Enter email id: ")
+                if '@' in email_id and '.' in email_id:
+                    break
+                else:
+                    logger.warning("Invalid Email id format")
+                    print("Invalid Email id format")
+            if address_book.contact_exists(first_name, last_name):
+                logger.warning(f"{first_name} {last_name} - Contact already exists.")
+                print(f"{first_name} {last_name} - Contact already exists.")
+                print("Please enter a new contact.")
+                continue
+                    
+        except KeyboardInterrupt:
+            logger.error("Process interrupted by user.")
+            print("Process interrupted by user. Exiting...")
+            exit(1)
+        
+        except Exception as e:
+            logger.error(f"Unexpected error: {e}")
+            print(f"Unexpected error occured: {e}")
+            return None
+        
+        # if all the variables are non empty it creates contact otherwise it returns None
+        if all([first_name, last_name, city, state, zip_code, mobile_number, email_id]):
+            contact = Contact(first_name, last_name, city, state, zip_code, mobile_number, email_id)
+            address_book.add_contact(contact)
+            return contact
+        else:
+            logger.warning("Failed to create contact. Please enter correct details in all the fields")
+            print("Failed to create contact. Please try again.")
+            return None
     
 def main():
     """
@@ -288,9 +304,10 @@ def main():
                             print("Invalid Input: Please enter integers only")
                     book = system.get_address_book(name)
                     for _ in range(number_of_persons):
-                        contact = create_contact()
+                        contact = create_contact(book)
                         if contact:
-                            book.add_contact(contact)
+                                logger.info(f"{contact.first_name} {contact.last_name} - Contact added to {name} contacts")
+                                print(f"{contact.first_name} {contact.last_name} - Contact added to {name} contacts")
                 else:
                     logger.warning(f"Address book {name} doesn't exist.")
                     print(f"Address book {name} doesn't exist.")
@@ -312,7 +329,7 @@ def main():
                 name  = input("Enter Address Book name to edit a contact: ")
                 if name in system.address_books:
                     book = system.get_address_book(name)
-                    if book and len(book.contacts) > 0:
+                    if book and book.contacts:
                         first_name = input("Enter the first name of the contact to edit: ")
                         last_name = input("Enter the last name of the contact to edit: ")
                         book.edit_contact(first_name, last_name)
@@ -327,7 +344,7 @@ def main():
                 name  = input("Enter Address Book name to delete a contact: ")
                 if name in system.address_books:
                     book = system.get_address_book(name)
-                    if book and len(book.contacts) > 0:
+                    if book and book.contacts:
                         first_name = input("Enter the first name of the contact to delete: ")
                         last_name = input("Enter the last name of the contact to delete: ")
                         book.delete_contact(first_name, last_name)  
@@ -358,4 +375,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

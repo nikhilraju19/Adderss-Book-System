@@ -221,3 +221,19 @@
 2025-02-20 18:54:38,361 : WARNING : No contacts to edit in Address book BRIDGELABZ.
 2025-02-20 18:54:45,792 : WARNING : No contacts to delete in Address book BRIDGELABZ.
 2025-02-20 18:54:48,636 : INFO : Exiting Address Book System
+2025-02-21 01:39:30,832 : INFO : Address Book SRM - Created Successfully
+2025-02-21 01:39:43,346 : WARNING : No contacts available to display.
+2025-02-21 01:39:46,869 : WARNING : No contacts to edit in Address book SRM.
+2025-02-21 01:39:50,226 : WARNING : No contacts to delete in Address book SRM.
+2025-02-21 01:40:01,803 : WARNING : Invalid Input: Please enter integers only
+2025-02-21 01:40:24,468 : INFO : nikhil vardhan - Contact added to SRM contacts
+2025-02-21 01:40:48,630 : WARNING : Invalid Email id format
+2025-02-21 01:40:52,173 : INFO : nikhil asdf - Contact added to SRM contacts
+2025-02-21 01:41:19,620 : WARNING : Zip code should be numeric and it should be valid
+2025-02-21 01:41:28,587 : WARNING : nikhil vardhan - Contact already exists.
+2025-02-21 01:41:35,663 : WARNING : Zip code should be numeric and it should be valid
+2025-02-21 01:41:42,918 : WARNING : Invalid Email id format
+2025-02-21 01:41:43,404 : WARNING : Invalid Email id format
+2025-02-21 01:41:46,085 : INFO : adsf dsf - Contact added to SRM contacts
+2025-02-21 01:42:14,685 : INFO : nikhil vardhan - Contact deleted successfully
+2025-02-21 01:42:29,595 : INFO : Exiting Address Book System
