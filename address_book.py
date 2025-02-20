@@ -36,7 +36,7 @@ class Contact:
         Parameters:
             self: self refers to the instance of the class
         Return:
-            None
+            It returns the contact details of a person.
         """ 
         return (f"Name: {self.first_name} {self.last_name}\n"
                 f"Address: {self.city}, {self.state} - {self.zip_code}\n"
@@ -44,7 +44,7 @@ class Contact:
         
 class MyContacts:
     """
-    This class contains the functions for the multiple operations of the my contacts
+    This class contains the functions of multiple operations for my contacts
     """
     def __init__(self):
         """
@@ -84,7 +84,7 @@ class MyContacts:
         Return:
             None
         """ 
-        if not self.contacts:
+        if len(self.contacts) == 0:
             logger.warning("No contacts available to display.")
             print("No contacts available to display")
         else:
@@ -115,18 +115,18 @@ class MyContacts:
                 logger.info(f"{first_name} {last_name} - Contact updated successfully")
                 print(f"{first_name} {last_name} - Contact updated successfully")
                 return True
-        logger.warning("Contact not found.")
-        print("Contact not found. Please try again.")
+        logger.warning("Contact not found to edit.")
+        print("Contact not found to edit.")
         return False
 
     def delete_contact(self, first_name, last_name):
         """
         Description:
-            This function is used to edit a contact in the my contacts
+            This function is used to delete a contact in the my contacts
         Parameters:
             self: self refers to the instance of the class
-            first_name: first name that needed to edit a contact
-            last_name: last name that needed to edit a contact
+            first_name: first name that needed to delete a contact
+            last_name: last name that needed to delete a contact
         Return:
             bool: True if contact is edited successfully in the my contacts, False otherwise
         """
@@ -136,10 +136,57 @@ class MyContacts:
                 logger.info(f"{first_name} {last_name} - Contact deleted successfully")
                 print(f"{first_name} {last_name} - Contact deleted successfully")
                 return True
-        logger.warning("Contact not found.")
-        print("Contact not found. Please try again.")
+        logger.warning("Contact not found to delete.")
+        print("Contact not found to delete.")
         return False
-         
+    
+class AddressBookSystem():
+    """
+    This class contains the functions of mutliple operations for Address Book System
+    """
+    def __init__(self):
+        """
+        Description:
+            It is a constructor that initializes empty address books dictionary upon object creation
+        Parameters:
+            self: self refers to the instance of the class
+        Return:
+            None
+        """ 
+        self.address_books = {}
+        
+    def add_address_book(self, name):
+        """
+        Description:
+            This functions is used to know whether a address book is already exist or not, if not then add it.
+        Parameters:
+            self: self refers to the instance of the class
+            name: name of the address book
+        Return:
+            bool: True if address book not exists, False otherwise
+        """ 
+        if name not in self.address_books:
+            self.address_books[name] = MyContacts()
+            logger.info(f"Address Book {name} - Created Successfully")
+            print(f"Address Book {name} - Created Successfully")
+            return True
+        else:
+            logger.warning(f"Address Book {name} already exists")
+            print(f"Address Book {name} already exists")
+            return False
+        
+    def get_address_book(self, name):
+        """
+        Description:
+            This functions is used to get the details of the address book
+        Parameters:
+            self: self refers to the instance of the class
+            name: name of the address book
+        Return:
+            address book details
+        """
+        return self.address_books.get(name)
+                
 def create_contact():
     """
 	Description:
@@ -156,7 +203,7 @@ def create_contact():
         state = input("Enter name of the state: ")
         while True: 
             zip_code = input("Enter zip code: ")
-            if zip_code.isdigit() and (len(zip_code) == 6 or len(zip_code) == 7):
+            if zip_code.isdigit() and len(zip_code) == 6:
                 break 
             else:
                 logger.warning("Zip code should be numeric and it should be valid")
@@ -170,7 +217,7 @@ def create_contact():
                 print("Invalid Input: Mobile number should be numeric and it must be exactly 10 digits")
         while True:
             email_id = input("Enter email id: ")
-            if '@' in email_id or '.' in email_id:
+            if '@' in email_id and '.' in email_id:
                 break
             else:
                 logger.warning("Invalid Email id format")
@@ -207,47 +254,97 @@ def main():
 	Return:
 		None
     """
-    my_contacts = MyContacts()
+    system = AddressBookSystem()
     while True:
         try:
-            print("\nMy Contacts Menu: ")
-            print("1. Create a new contact")
-            print("2. Display Contacts")
-            print("3. Edit a contact")
-            print("4. Delete a contact")
-            print("5. Exit")
+            print("\nAddress Book System Menu: ")
+            print("1. Create a new Address Book")
+            print("2. Create a new contact in Address Book")
+            print("3. Display contacts in Address Book")
+            print("4. Edit a contact in Address Book")
+            print("5. Delete a contact in Address Book")
+            print("6. Exit")
             
-            choice = int(input("\nPlease select a number from My Contacts menu: "))
+            choice = int(input("\nPlease select a number from Address Book System Menu: "))
             
             if choice == 1:
-                while True:
-                    number_of_persons = input("Enter the number of persons to be added in my contacts: ")
-                    if number_of_persons.isdigit():
-                        number_of_persons = int(number_of_persons)
-                        if number_of_persons > 0:
-                            break
-                    logger.warning("Invalid Input: Please enter a number which is greater than 0")
-                    print("Invalid Input: Please enter a number which is greater than 0")
-                for _ in range(number_of_persons):
-                    contact = create_contact()
-                    my_contacts.add_contact(contact)
+                name = input("Enter Address Book name: ")
+                system.add_address_book(name)
+                
             elif choice == 2:
-                my_contacts.display_contacts()
+                name  = input("Enter Address Book name to create a new contact: ")
+                if name in system.address_books:
+                    while True:
+                        number_of_persons = input(f"Enter the number of persons to be added in {name} contacts: ")
+                        if number_of_persons.isdigit():
+                            number_of_persons = int(number_of_persons)
+                            if number_of_persons > 0:
+                                break
+                            else:
+                                logger.warning("Number of persons should be greater than zero")
+                                print("Number of persons should be greater than zero")
+                        else:
+                            logger.warning("Invalid Input: Please enter integers only")
+                            print("Invalid Input: Please enter integers only")
+                    book = system.get_address_book(name)
+                    for _ in range(number_of_persons):
+                        contact = create_contact()
+                        if contact:
+                            book.add_contact(contact)
+                else:
+                    logger.warning(f"Address book {name} doesn't exist.")
+                    print(f"Address book {name} doesn't exist.")
+                    
             elif choice == 3:
-                first_name = input("Enter the first name of the contact to edit: ")
-                last_name = input("Enter the last name of the contact to edit: ")
-                my_contacts.edit_contact(first_name, last_name) 
+                name  = input("Enter Address Book name to display contacts: ")
+                if name in system.address_books:
+                    book = system.get_address_book(name)
+                    if book:
+                        book.display_contacts()
+                    else:
+                        logger.warning(f"No contacts to display in Address book {name}.")
+                        print(f"No contacts to display in Address book {name}.")
+                else:
+                    logger.warning(f"Address book {name} doesn't exist.")
+                    print(f"Address book {name} doesn't exist.")
+                    
             elif choice == 4:
-                first_name = input("Enter the first name of the contact to delete: ")
-                last_name = input("Enter the last name of the contact to delete: ")
-                my_contacts.delete_contact(first_name, last_name)   
+                name  = input("Enter Address Book name to edit a contact: ")
+                if name in system.address_books:
+                    book = system.get_address_book(name)
+                    if book and len(book.contacts) > 0:
+                        first_name = input("Enter the first name of the contact to edit: ")
+                        last_name = input("Enter the last name of the contact to edit: ")
+                        book.edit_contact(first_name, last_name)
+                    else:
+                        logger.warning(f"No contacts to edit in Address book {name}.")
+                        print(f"No contacts to edit in Address book {name}.")
+                else:
+                    logger.warning(f"Address book {name} doesn't exist.")
+                    print(f"Address book {name} doesn't exist.")
+                    
             elif choice == 5:
-                logger.info("Exiting My Contacts System")
-                print("Exiting My Contacts System")
+                name  = input("Enter Address Book name to delete a contact: ")
+                if name in system.address_books:
+                    book = system.get_address_book(name)
+                    if book and len(book.contacts) > 0:
+                        first_name = input("Enter the first name of the contact to delete: ")
+                        last_name = input("Enter the last name of the contact to delete: ")
+                        book.delete_contact(first_name, last_name)  
+                    else:
+                        logger.warning(f"No contacts to delete in Address book {name}.")
+                        print(f"No contacts to delete in Address book {name}.")
+                else:
+                    logger.warning(f"Address book {name} doesn't exist.")
+                    print(f"Address book {name} doesn't exist.")                
+                    
+            elif choice == 6:
+                logger.info("Exiting Address Book System")
+                print("Exiting Address Book System")
                 break
             else:
-                logger.warning("Invalid choice. Please choose a valid option from My Contacts Menu.")
-                print("Invalid choice. Please choose a valid option from My Contacts Menu.")
+                logger.warning("Invalid choice. Please choose a valid option from Address Book System Menu.")
+                print("Invalid choice. Please choose a valid option from Address Book System Menu.")
 
         except KeyboardInterrupt:
             logger.error("Process interrupted by user.")
@@ -257,8 +354,8 @@ def main():
         except Exception as e:
             logger.error(f"Unexpected error: {e}")
             print(f"Unexpected error occured: {e}")
-            return None
 
 
 if __name__ == "__main__":
     main()
+    

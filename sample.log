@@ -192,3 +192,32 @@
 2025-02-19 15:49:03,257 : INFO : Karthik Reddy - Contact deleted successfully
 2025-02-19 15:49:04,943 : WARNING : No contacts available to display.
 2025-02-19 15:49:59,696 : ERROR : Process interrupted by user.
+2025-02-20 18:49:04,030 : INFO : Address Book SRM - Created Successfully
+2025-02-20 18:49:17,562 : WARNING : Address book Srm doesn't exist.
+2025-02-20 18:49:22,196 : WARNING : Address book SRm doesn't exist.
+2025-02-20 18:49:45,869 : INFO : sdfdfg fdgsd - Contact created successfully
+2025-02-20 18:49:45,869 : INFO : sdfdfg fdgsd added to my contacts
+2025-02-20 18:49:58,130 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-20 18:50:04,551 : INFO : jfhdbaf dsfsdaf - Contact created successfully
+2025-02-20 18:50:04,552 : INFO : jfhdbaf dsfsdaf added to my contacts
+2025-02-20 18:50:15,543 : INFO : Address Book srm - Created Successfully
+2025-02-20 18:50:35,519 : WARNING : Zip code should be numeric and it should be valid
+2025-02-20 18:50:37,697 : WARNING : Zip code should be numeric and it should be valid
+2025-02-20 18:50:46,619 : INFO : asjdfnhj sdfasgdfsd - Contact created successfully
+2025-02-20 18:50:46,619 : INFO : asjdfnhj sdfasgdfsd added to my contacts
+2025-02-20 18:50:52,846 : WARNING : Zip code should be numeric and it should be valid
+2025-02-20 18:51:11,265 : INFO : sdfkjsfd gffs - Contact created successfully
+2025-02-20 18:51:11,265 : INFO : sdfkjsfd gffs added to my contacts
+2025-02-20 18:51:15,155 : WARNING : Zip code should be numeric and it should be valid
+2025-02-20 18:51:24,017 : INFO : sdfdjsf g - Contact created successfully
+2025-02-20 18:51:24,017 : INFO : sdfdjsf g added to my contacts
+2025-02-20 18:52:25,975 : INFO : sdfdfg fdgsd - Contact updated successfully
+2025-02-20 18:53:15,170 : INFO : jfhdbaf dsfsdaf - Contact deleted successfully
+2025-02-20 18:53:45,934 : WARNING : Address book dfsdafs doesn't exist.
+2025-02-20 18:53:59,079 : WARNING : Address book Bridgelabz doesn't exist.
+2025-02-20 18:54:03,612 : WARNING : Address book dsfs doesn't exist.
+2025-02-20 18:54:25,990 : INFO : Address Book BRIDGELABZ - Created Successfully
+2025-02-20 18:54:32,120 : WARNING : No contacts available to display.
+2025-02-20 18:54:38,361 : WARNING : No contacts to edit in Address book BRIDGELABZ.
+2025-02-20 18:54:45,792 : WARNING : No contacts to delete in Address book BRIDGELABZ.
+2025-02-20 18:54:48,636 : INFO : Exiting Address Book System
