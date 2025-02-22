@@ -393,3 +393,24 @@
 2025-02-22 21:00:36,682 : INFO : kjgrmf arstga - Contact added to srm contacts
 2025-02-22 21:01:03,420 : INFO : Contacts sorted alphabetically
 2025-02-22 21:01:44,843 : INFO : Exiting Address Book System
+2025-02-23 00:02:54,785 : WARNING : Invalid choice. Please choose a valid option from Address Book System Menu.
+2025-02-23 00:02:59,637 : ERROR : Unexpected error: invalid literal for int() with base 10: 'sdfg'
+2025-02-23 00:03:14,011 : INFO : Address Book srm - Created Successfully
+2025-02-23 00:03:19,969 : WARNING : No contacts to delete in Address book srm.
+2025-02-23 00:03:33,453 : WARNING : No contacts to sort in Address book.
+2025-02-23 00:03:43,001 : WARNING : No contacts to edit in Address book srm.
+2025-02-23 00:03:49,789 : WARNING : No contacts to delete in Address book srm.
+2025-02-23 00:04:41,625 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-23 00:04:46,940 : INFO : a c - Contact added to srm contacts
+2025-02-23 00:05:11,617 : INFO : a b - Contact added to srm contacts
+2025-02-23 00:06:07,115 : WARNING : Zip code should be numeric and it should be valid
+2025-02-23 00:06:08,710 : WARNING : Zip code should be numeric and it should be valid
+2025-02-23 00:06:13,447 : INFO : ez br - Contact added to srm contacts
+2025-02-23 00:06:42,953 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-23 00:06:44,636 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-23 00:06:52,132 : INFO : ce ar - Contact added to srm contacts
+2025-02-23 00:07:36,560 : INFO : rew tefra - Contact added to srm contacts
+2025-02-23 00:07:58,172 : INFO : oiwhrjnthg qerg - Contact added to srm contacts
+2025-02-23 00:08:39,375 : INFO : Contacts sorted alphabetically by name
+2025-02-23 00:09:05,651 : INFO : Contacts sorted alphabetically by state
+2025-02-23 00:09:30,879 : INFO : Exiting Address Book System

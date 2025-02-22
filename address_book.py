@@ -151,10 +151,10 @@ class MyContacts:
         print("Contact not found to delete.")
         return False
     
-    def sort_contacts_by_name(self):
+    def sort_by_name(self):
         """
         Description:
-            This function is used to sorts the contacts in the address book alphabetically by first name.
+            This function is used to sorts the contacts in the address book alphabetically name.
         Parameters:
             self: self refers to the instance of this class.
         Return:
@@ -162,8 +162,27 @@ class MyContacts:
         """
         if self.contacts:
             self.contacts.sort(key=lambda contact: (contact.first_name.lower(), contact.last_name.lower()))
-            logger.info(f"Contacts sorted alphabetically")
-            print(f"Contacts sorted alphabetically.")
+            logger.info(f"Contacts sorted alphabetically by name")
+            print(f"Contacts sorted alphabetically by name.")
+            return True
+        else:
+            logger.warning(f"No contacts to sort in Address book.")
+            print(f"No contacts to sort in Address book.")
+            return False
+        
+    def sort_by_state(self):
+        """
+        Description:
+            This function is used to sorts the contacts in the address book alphabetically name.
+        Parameters:
+            self: self refers to the instance of this class.
+        Return:
+            bool: True if contacts are sorted alphabetically, False otherwise
+        """
+        if self.contacts:
+            self.contacts.sort(key=lambda contact: (contact.state.lower()))
+            logger.info(f"Contacts sorted alphabetically by state")
+            print(f"Contacts sorted alphabetically by state.")
             return True
         else:
             logger.warning(f"No contacts to sort in Address book.")
@@ -393,8 +412,9 @@ def main():
             print("6. Search for a person by city across Address Books")
             print("7. Search for a person by state across Address Books")
             print("8. Get count of contacts in a city")
-            print("9. Sort contacts in Address Book alphabetically")
-            print("10. Exit")
+            print("9. Sort contacts in Address Book alphabetically by name")
+            print("10. Sort contacts in Address Book alphabetically by state")
+            print("11. Exit")
             
             choice = int(input("\nPlease select a number from Address Book System Menu: "))
             
@@ -489,14 +509,24 @@ def main():
                 system.count_by_city(city)
                 
             elif choice == 9:
-                book_name = input("Enter Address Book name to sort contacts: ")
+                book_name = input("Enter Address Book name to sort contacts by name: ")
                 if book_name in system.address_books:
                     book = system.get_address_book(book_name)
-                    book.sort_contacts_by_name()
+                    book.sort_by_name()
                 else:
+                    logger.warning(f"Address book {book_name} does not exist.")
+                    print(f"Address book {book_name} does not exist.")
+                    
+            elif choice == 10:
+                book_name = input("Enter Address Book name to sort contacts by state: ")
+                if book_name in system.address_books:
+                    book = system.get_address_book(book_name)
+                    book.sort_by_state()
+                else:
+                    logger.warning(f"Address book {book_name} does not exist.")
                     print(f"Address book {book_name} does not exist.")
 
-            elif choice == 10:
+            elif choice == 11:
                 logger.info("Exiting Address Book System")
                 print("Exiting Address Book System")
                 break
