@@ -272,6 +272,24 @@ class AddressBookSystem():
             logger.warning(f"No contacts found in state {state}.")
             print(f"No contacts found in state {state}.")
             
+    def count_by_city(self, city):
+        """
+        Description:
+            This function is used to display the number of contacts in a given city.
+        Parameters:
+            self: self refers to the instance of the class
+            city: The city name to get the count
+        Return:
+            None
+        """
+        city_lower = city.lower()
+        if city_lower in self.city_dict:
+            count = len(self.city_dict[city_lower])
+            print(f"Number of contacts in {city}: {count} persons")
+        else:
+            logger.warning(f"No contacts found in city {city}.")
+            print(f"No contacts found in city {city}.")
+            
 def create_contact(address_book):
     """
 	Description:
@@ -355,7 +373,8 @@ def main():
             print("5. Delete a contact in Address Book")
             print("6. Search for a person by city across Address Books")
             print("7. Search for a person by state across Address Books")
-            print("8. Exit")
+            print("8. Get count of contacts in a city")
+            print("9. Exit")
             
             choice = int(input("\nPlease select a number from Address Book System Menu: "))
             
@@ -444,8 +463,12 @@ def main():
             elif choice == 7:
                 state = input("Enter state name to search for contacts: ")
                 system.search_by_state(state)
-            
+                
             elif choice == 8:
+                city = input("Enter city name to count contacts: ")
+                system.count_by_city(city)
+            
+            elif choice == 9:
                 logger.info("Exiting Address Book System")
                 print("Exiting Address Book System")
                 break
