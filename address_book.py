@@ -151,6 +151,25 @@ class MyContacts:
         print("Contact not found to delete.")
         return False
     
+    def sort_contacts_by_name(self):
+        """
+        Description:
+            This function is used to sorts the contacts in the address book alphabetically by first name.
+        Parameters:
+            self: self refers to the instance of this class.
+        Return:
+            bool: True if contacts are sorted alphabetically, False otherwise
+        """
+        if self.contacts:
+            self.contacts.sort(key=lambda contact: (contact.first_name.lower(), contact.last_name.lower()))
+            logger.info(f"Contacts sorted alphabetically")
+            print(f"Contacts sorted alphabetically.")
+            return True
+        else:
+            logger.warning(f"No contacts to sort in Address book.")
+            print(f"No contacts to sort in Address book.")
+            return False
+    
 class AddressBookSystem():
     """
     This class contains the functions of mutliple operations for Address Book System
@@ -374,7 +393,8 @@ def main():
             print("6. Search for a person by city across Address Books")
             print("7. Search for a person by state across Address Books")
             print("8. Get count of contacts in a city")
-            print("9. Exit")
+            print("9. Sort contacts in Address Book alphabetically")
+            print("10. Exit")
             
             choice = int(input("\nPlease select a number from Address Book System Menu: "))
             
@@ -467,8 +487,16 @@ def main():
             elif choice == 8:
                 city = input("Enter city name to count contacts: ")
                 system.count_by_city(city)
-            
+                
             elif choice == 9:
+                book_name = input("Enter Address Book name to sort contacts: ")
+                if book_name in system.address_books:
+                    book = system.get_address_book(book_name)
+                    book.sort_contacts_by_name()
+                else:
+                    print(f"Address book {book_name} does not exist.")
+
+            elif choice == 10:
                 logger.info("Exiting Address Book System")
                 print("Exiting Address Book System")
                 break
