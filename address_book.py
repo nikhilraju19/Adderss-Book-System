@@ -1,3 +1,4 @@
+import csv
 from logging_config import logger
 
 
@@ -340,17 +341,17 @@ class AddressBookSystem():
             None
         """
         try:
-            with open(self.filename, "w") as file:
+            with open(self.filename, "w", newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow([" Address Book Name", " First Name ", " Last Name ", " City ", " State ", " Zip Code ", " Mobile Number ", " Email ID "])
                 for name, book in self.address_books.items():
-                    file.write(f"Address Book: {name}\n")
                     for contact in book.contacts:
-                        file.write(f"{contact.first_name} {contact.last_name}, {contact.city}, {contact.state}, {contact.zip_code}, {contact.mobile_number}, {contact.email_id}\n")
-                    file.write("\n")
-            logger.info("Address book saved successfully.")
+                        writer.writerow([name, contact.first_name, contact.last_name, contact.city, contact.state, contact.zip_code, contact.mobile_number, contact.email_id])
+            logger.warning("Address book saved successfully.")
             print("Address book saved successfully.")
         except Exception as e:
-            logger.warning(f"Error saving to file: {e}")
-            print(f"Error saving to file: {e}")
+            logger.warning("Address book saved successfully.")
+            print(f"Address book saved successfully.")
         
     def load_from_file(self):
         """
@@ -362,25 +363,24 @@ class AddressBookSystem():
             None
         """
         try:
-            with open(self.filename, "r") as file:
+            with open(self.filename, "r", newline='') as file:
+                reader = csv.reader(file)
+                next(reader, None)
                 self.address_books.clear()
-                current_book = None
-                for line in file:
-                    line = line.strip()
-                    if line.startswith("Address Book:"):
-                        current_book = line.split(": ")[1]
-                        self.address_books[current_book] = MyContacts()
-                    elif line and current_book:
-                        parts = line.split(", ")
-                        if len(parts) == 6:
-                            first_name, last_name = parts[0].split(" ")
-                            city, state, zip_code, mobile_number, email_id = parts[1:]
-                            contact = Contact(first_name, last_name, city, state, zip_code, mobile_number, email_id)
-                            self.address_books[current_book].add_contact(contact)
+                for row in reader:
+                    if len(row) == 8:
+                        name, first_name, last_name, city, state, zip_code, mobile_number, email_id = row
+                        contact = Contact(first_name, last_name, city, state, zip_code, mobile_number, email_id)
+                        if name not in self.address_books:
+                            self.address_books[name] = MyContacts()
+                        self.address_books[name].add_contact(contact)
+            logger.warning("Address book loaded successfully.")
             print("Address book loaded successfully.")
         except FileNotFoundError:
+            logger.warning("No previous address book found, starting fresh.")
             print("No previous address book found, starting fresh.")
         except Exception as e:
+            logger.warning("Error loading file: {e}")
             print(f"Error loading file: {e}")
             
     def contacts_file(self):
@@ -488,7 +488,7 @@ def main():
             print("8. Get count of contacts in a city")
             print("9. Sort contacts in Address Book alphabetically by name")
             print("10. Sort contacts in Address Book alphabetically by state")
-            print("11. Read or Write the Address Book into a text file")
+            print("11. Read or Write the Address Book into a csv file")
             print("12. Exit")
             
             choice = int(input("\nPlease select a number from Address Book System Menu: "))
