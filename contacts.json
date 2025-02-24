@@ -1,0 +1,42 @@
+{
+    "srm": [
+        {
+            "first_name": "nikhil",
+            "last_name": "vardhan",
+            "city": "produttoor",
+            "state": "odisha",
+            "zip_code": "858585",
+            "mobile_number": "8585858585",
+            "email_id": "nik@raj.coom"
+        },
+        {
+            "first_name": "karthik",
+            "last_name": "reddy",
+            "city": "rampur",
+            "state": "telangana",
+            "zip_code": "252525",
+            "mobile_number": "2525252525",
+            "email_id": "@."
+        }
+    ],
+    "bridgelabz": [
+        {
+            "first_name": "nikhil",
+            "last_name": "vardhan",
+            "city": "kadapa",
+            "state": "andhra",
+            "zip_code": "151515",
+            "mobile_number": "1515151515",
+            "email_id": "@."
+        },
+        {
+            "first_name": "karthik",
+            "last_name": "reddy",
+            "city": "rampur",
+            "state": "telangana",
+            "zip_code": "252525",
+            "mobile_number": "2525252525",
+            "email_id": "@."
+        }
+    ]
+}
