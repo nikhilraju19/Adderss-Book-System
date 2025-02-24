@@ -414,3 +414,23 @@
 2025-02-23 00:08:39,375 : INFO : Contacts sorted alphabetically by name
 2025-02-23 00:09:05,651 : INFO : Contacts sorted alphabetically by state
 2025-02-23 00:09:30,879 : INFO : Exiting Address Book System
+2025-02-24 16:55:09,442 : WARNING : Address book srm doesn't exist.
+2025-02-24 16:55:15,856 : INFO : Address Book srm - Created Successfully
+2025-02-24 16:55:33,134 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-24 16:55:35,060 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-24 16:55:36,739 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-24 16:55:43,718 : INFO : nikhil vardhan - Contact added to srm contacts
+2025-02-24 16:56:02,518 : INFO : mar jas - Contact added to srm contacts
+2025-02-24 16:56:12,779 : WARNING : Mobile number should be numeric and it must be exactly 10 digits
+2025-02-24 16:56:21,004 : INFO : kar red - Contact added to srm contacts
+2025-02-24 16:56:35,043 : INFO : Address book saved successfully.
+2025-02-24 16:56:58,525 : INFO : Address Book bridgelabz - Created Successfully
+2025-02-24 16:57:02,550 : INFO : Address book saved successfully.
+2025-02-24 16:57:45,481 : INFO : nikhil vardhan - Contact deleted successfully
+2025-02-24 16:57:49,413 : INFO : Address book saved successfully.
+2025-02-24 16:58:15,437 : INFO : Address book saved successfully.
+2025-02-24 16:58:45,199 : INFO : kar red - Contact updated successfully
+2025-02-24 16:58:48,621 : INFO : Address book saved successfully.
+2025-02-24 16:59:18,135 : WARNING : Invalid option.
+2025-02-24 16:59:27,877 : WARNING : Address book chennai doesn't exist.
+2025-02-24 17:00:37,989 : INFO : Exiting Address Book System

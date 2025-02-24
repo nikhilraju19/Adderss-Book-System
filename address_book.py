@@ -193,7 +193,7 @@ class AddressBookSystem():
     """
     This class contains the functions of mutliple operations for Address Book System
     """
-    def __init__(self):
+    def __init__(self,filename):
         """
         Description:
             It is a constructor that initializes empty address books dictionary upon object creation
@@ -205,6 +205,8 @@ class AddressBookSystem():
         self.address_books = {}
         self.city_dict = {}
         self.state_dict = {}
+        self.filename = filename
+        self.load_from_file()
         
     def add_address_book(self, name):
         """
@@ -328,6 +330,77 @@ class AddressBookSystem():
             logger.warning(f"No contacts found in city {city}.")
             print(f"No contacts found in city {city}.")
             
+    def save_to_file(self):
+        """
+        Description:
+            This function is write the data into a file.
+        Parameters:
+            self: self refers to the instance of the class
+        Return:
+            None
+        """
+        try:
+            with open(self.filename, "w") as file:
+                for name, book in self.address_books.items():
+                    file.write(f"Address Book: {name}\n")
+                    for contact in book.contacts:
+                        file.write(f"{contact.first_name} {contact.last_name}, {contact.city}, {contact.state}, {contact.zip_code}, {contact.mobile_number}, {contact.email_id}\n")
+                    file.write("\n")
+            logger.info("Address book saved successfully.")
+            print("Address book saved successfully.")
+        except Exception as e:
+            logger.warning(f"Error saving to file: {e}")
+            print(f"Error saving to file: {e}")
+        
+    def load_from_file(self):
+        """
+        Description:
+            This function is used to read the data present in the file.
+        Parameters:
+            self: self refers to the instance of the class
+        Return:
+            None
+        """
+        try:
+            with open(self.filename, "r") as file:
+                self.address_books.clear()
+                current_book = None
+                for line in file:
+                    line = line.strip()
+                    if line.startswith("Address Book:"):
+                        current_book = line.split(": ")[1]
+                        self.address_books[current_book] = MyContacts()
+                    elif line and current_book:
+                        parts = line.split(", ")
+                        if len(parts) == 6:
+                            first_name, last_name = parts[0].split(" ")
+                            city, state, zip_code, mobile_number, email_id = parts[1:]
+                            contact = Contact(first_name, last_name, city, state, zip_code, mobile_number, email_id)
+                            self.address_books[current_book].add_contact(contact)
+            print("Address book loaded successfully.")
+        except FileNotFoundError:
+            print("No previous address book found, starting fresh.")
+        except Exception as e:
+            print(f"Error loading file: {e}")
+            
+    def contacts_file(self):
+        """
+        Description:
+            This function is used to read or write a file.
+        Parameters:
+            self: self refers to the instance of the class
+        Return:
+            None
+        """
+        choice = input("Enter 'r' to read from file, 'w' to write to file: ")
+        if choice == 'r':
+            self.load_from_file()
+        elif choice == 'w':
+            self.save_to_file()
+        else:
+            logger.warning("Invalid option.")
+            print("Invalid option.")
+            
 def create_contact(address_book):
     """
 	Description:
@@ -400,7 +473,8 @@ def main():
 	Return:
 		None
     """
-    system = AddressBookSystem()
+    filename = input("Enter the text filename to read or write for the address book: ")
+    system = AddressBookSystem(filename)
     while True:
         try:
             print("\nAddress Book System Menu: ")
@@ -414,7 +488,8 @@ def main():
             print("8. Get count of contacts in a city")
             print("9. Sort contacts in Address Book alphabetically by name")
             print("10. Sort contacts in Address Book alphabetically by state")
-            print("11. Exit")
+            print("11. Read or Write the Address Book into a text file")
+            print("12. Exit")
             
             choice = int(input("\nPlease select a number from Address Book System Menu: "))
             
@@ -525,8 +600,11 @@ def main():
                 else:
                     logger.warning(f"Address book {book_name} does not exist.")
                     print(f"Address book {book_name} does not exist.")
-
+                    
             elif choice == 11:
+                system.contacts_file()
+
+            elif choice == 12:
                 logger.info("Exiting Address Book System")
                 print("Exiting Address Book System")
                 break
