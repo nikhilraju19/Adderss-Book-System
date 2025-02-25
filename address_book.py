@@ -503,7 +503,7 @@ def main():
             print("8. Get count of contacts in a city")
             print("9. Sort contacts in Address Book alphabetically by name")
             print("10. Sort contacts in Address Book alphabetically by state")
-            print("11. Read or Write the Address Book into a csv file")
+            print("11. Read or Write the Address Book into a json file")
             print("12. Exit")
             
             choice = int(input("\nPlease select a number from Address Book System Menu: "))
